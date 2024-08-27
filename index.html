@@ -532,6 +532,9 @@
                   <button class="btn bg-body border text-white px-3 py-3 rounded-circle" data-color="white-perl"></button>
                   <button class="btn bg-primary border text-white px-3 py-3 rounded-circle" data-color="blue"></button>
               </div>
+              <div class="colors">
+                <span id="colorName">Color seleccionado: Rojo Metalizado</span>
+              </div>
             </div>
 
 
@@ -1197,16 +1200,17 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    let currentFrame = 4;
-    const totalFrames = 30; 
-    let isDragging = false;
-    let startX = 0;
+    let currentFrame = 4; // Frame inicial
+    const totalFrames = 30; // Total de frames
+    let isDragging = false; // Bandera para saber si se está arrastrando
+    let startX = 0; // Posición inicial del mouse
     let accumulatedMovement = 0; // Movimiento acumulado para mayor precisión
     const frameChangeThreshold = 20; // Ajustamos el umbral para hacer el touch más suave
     const productImage = document.getElementById('productImage');
     let currentColor = 'red'; // Color inicial
     let currentProduct = 'XS'; // Producto inicial
-    let imagesLoaded = false;
+    let imagesLoaded = false; // Bandera para saber si las imágenes se han cargado
+    const colorName = document.getElementById('colorName'); // Elemento para mostrar el nombre del color
 
     // Preload de todas las imágenes
     let imageCache = {};
@@ -1357,13 +1361,35 @@
       });
     });
 
+    
+    // Función para cambiar el color seleccionado
+    function colorSelected(color) {
+      if (color === 'red') {
+        colorName.innerText = 'Color seleccionado: Rojo Metalizado';
+      } else if (color === 'black') {
+        colorName.innerText = 'Color seleccionado: Negro Mica';
+      } else if(color === 'white'){
+        colorName.innerText = 'Color seleccionado: Super Blanco';
+      } else if(color === 'gray'){
+        colorName.innerText = 'Color seleccionado: Gris Oscuro';
+      } else if(color === 'silver'){
+        colorName.innerText = 'Color seleccionado: Gris Plata';
+      } else if(color === 'blue'){
+        colorName.innerText = 'Color seleccionado: Gris Azulado';
+      } else if(color === 'white-perl'){
+        colorName.innerText = 'Color seleccionado: Blanco Perlado';
+      }
+
+    }
+
     // Cambiar color y recargar imágenes
     const colorButtons = document.querySelectorAll('button[data-color]');
     colorButtons.forEach(button => {
       button.addEventListener('click', () => {
         currentColor = button.getAttribute('data-color');
+        colorSelected(currentColor);
         preloadImages(); // Cargar las imágenes del nuevo color
-        updateImage();
+        updateImage(); // Actualizar la imagen
       });
     });
   </script>

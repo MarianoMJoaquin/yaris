@@ -1325,7 +1325,7 @@ section,
 
 .menu .menu-content span {
   background: var(--background-color);
-  color: var(--accent-color);
+  color: color-mix(in srgb, var(--default-color), transparent 50%);
   position: relative;
   z-index: 3;
   padding: 0 10px;
