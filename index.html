@@ -506,7 +506,7 @@
       </div><!-- End Section Title -->
 
       <div class="container">
-        <div class="tabs border-bottom">
+        <div class="tabs">
           <div class="tab active" data-product="XS">XS</div>
           <div class="tab" data-product="XLS">XLS</div>
           <div class="tab" data-product="S">S</div>
@@ -518,15 +518,19 @@
             <div class="menu-content gap-4 flex-column justify-content-center align-items-center">
               <div class="viewer bg-white rounded-md" id="productViewer">
                   <div id="spinner" class="spinner"></div>
-                  <img src="/assets/img/images/white/1.png" alt="Producto en 360" id="productImage">
+                  <img src="/assets/img/images/XS/red/4.png" alt="Producto en 360" id="productImage">
               </div>
               <div class="menu-ingredients">
                 <i class="ri-arrow-left-s-line"></i> Arrastre para girar <i class="ri-arrow-right-s-line"></i>
               </div>
               <div class="d-flex gap-3">
-                  <button class="btn bg-light border  text-white px-3 rounded-circle" data-color="white"></button>
-                  <button class="btn bg-secondary border  text-white px-3 rounded-circle" data-color="gray"></button>
                   <button class="btn bg-danger border text-white px-3 py-3 rounded-circle" data-color="red"></button>
+                  <button class="btn bg-body border  text-white px-3 rounded-circle" data-color="white"></button>
+                  <button class="btn bg-secondary border  text-white px-3 rounded-circle" data-color="gray"></button>
+                  <button class="btn bg-light border text-white px-3 py-3 rounded-circle" data-color="silver"></button>
+                  <button class="btn bg-dark border text-white px-3 py-3 rounded-circle" data-color="black"></button>
+                  <button class="btn bg-body border text-white px-3 py-3 rounded-circle" data-color="white-perl"></button>
+                  <button class="btn bg-primary border text-white px-3 py-3 rounded-circle" data-color="blue"></button>
               </div>
             </div>
 
@@ -1193,14 +1197,14 @@
   <script src="assets/js/main.js"></script>
 
   <script>
-    let currentFrame = 1;
+    let currentFrame = 4;
     const totalFrames = 30; 
     let isDragging = false;
     let startX = 0;
     let accumulatedMovement = 0; // Movimiento acumulado para mayor precisión
     const frameChangeThreshold = 20; // Ajustamos el umbral para hacer el touch más suave
     const productImage = document.getElementById('productImage');
-    let currentColor = 'white'; 
+    let currentColor = 'red'; // Color inicial
     let currentProduct = 'XS'; // Producto inicial
     let imagesLoaded = false;
 
@@ -1342,11 +1346,11 @@
         tab.classList.add('active'); // Activar la tab seleccionada
 
         currentProduct = tab.getAttribute('data-product'); // Cambiar al producto seleccionado // Reiniciar el color
-        currentColor = 'white'; // Reiniciar el frame
+        currentColor = 'red'; // Reiniciar el color
         imagesLoaded = false; // Marcar las imágenes como no cargadas
         document.getElementById('spinner').style.display = 'block'; // Mostrar el spinner
         productImage.style.display = 'none'; // Ocultar la imagen actual
-        currentFrame = 1;
+        currentFrame = 4; //Reiniciar el frame
         
         preloadImages(); // Cargar las imágenes del nuevo producto
         updateImage(); // Actualizar la imagen
