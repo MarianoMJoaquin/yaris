@@ -873,6 +873,12 @@ h6 {
   max-height: 100%;
 }
 
+@media screen and (max-width: 768px) {
+  .viewer {
+    height: 300px;
+  }
+}
+
 @media screen and (min-width: 1024px) {
   .viewer {
     height: 200px;
