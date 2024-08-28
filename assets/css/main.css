@@ -875,7 +875,19 @@ h6 {
 
 @media screen and (min-width: 1024px) {
   .viewer {
+    height: 200px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .viewer {
     height: 250px;
+  }
+}
+
+@media screen and (min-width: 1536px) {
+  .viewer {
+    height: 400px;
   }
 }
 
