@@ -923,7 +923,8 @@ h6 {
   color: var(--accent-color);
   border-bottom: 2px solid var(--accent-color);
 }
-/**/
+
+/*Tabs Especificaciones*/
 
 .tab-content {
   display: none;
@@ -942,6 +943,7 @@ h6 {
 .fade.show {
   opacity: 1;
 }
+
 /*--------------------------------------------------------------
 # Disable aos animation delay on mobile devices
 --------------------------------------------------------------*/
